@@ -1,0 +1,43 @@
+﻿<Window x:Class="KonyvtarKliens.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonyvtarKliens"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="850">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Width" Value="60"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label Content="Id"/>
+            <TextBox Name="tbxId" IsReadOnly="True"/>
+            
+            <Label Content="Könyvtári név"/>
+            <TextBox Name="tbxKonyvtarNev"/>
+            
+            <Label Content="Irányítószám"/>
+            <TextBox Name="tbxIrsz"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnUj" Content="Új" Click="btnUj_Click"/>
+                <Button Name="btnModosit" Content="Módosít" Click="btnModosit_Click"/>
+                <Button Name="btnTorol" Content="Töröl" Click="btnTorol_Click"/>
+            </StackPanel>
+
+
+        </StackPanel>
+        <DataGrid Name="dgrKonyvtarak" Grid.Column="1"/>
+
+    </Grid>
+</Window>
