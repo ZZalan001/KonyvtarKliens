@@ -16,5 +16,10 @@ namespace KonyvtarKliens.Services
         {
             return await client.GetFromJsonAsync<List<KonyvtarakDTO>>("Konyvtar/GetAll");
         }
+        public static async Task<string> PostNew(HttpClient client, Konyvtarak ujKonyvtar)
+        {
+            var response = await client.PostAsJsonAsync("Konyvtar/Uj", ujKonyvtar);
+            return await response.Content.ReadAsStringAsync();
+        }
     }
 }

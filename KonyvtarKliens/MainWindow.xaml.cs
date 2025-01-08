@@ -33,7 +33,18 @@ namespace KonyvtarKliens
 
         private void btnUj_Click(object sender, RoutedEventArgs e)
         {
-
+            //Új könyvtár objektum létrehozása
+            Konyvtarak ujKonyvtar = new()
+            {
+                KonyvtarNev = tbxKonyvtarNev.Text,
+                Irsz = int.Parse(tbxIrsz.Text),
+                Cim = tbxCim.Text
+            };
+            //konyvtarService osztály PostNew metódusának meghívása
+            string valasz = KonyvtarService.PostNew(sharedClient, ujKonyvtar).Result;
+            MessageBox.Show(valasz);
+            //adatok újratöltése
+            FeltoltKonyvtar();
         }
 
         private void btnModosit_Click(object sender, RoutedEventArgs e)
@@ -49,7 +60,7 @@ namespace KonyvtarKliens
         private async void FeltoltKonyvtar()
         {
             konyvtarak = await KonyvtarService.GetAll(sharedClient);
-            Task.Delay(1000).Wait();
+            //Task.Delay(1000).Wait();
             dgrKonyvtarak.ItemsSource = konyvtarak;
         }
     }

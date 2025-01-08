@@ -29,6 +29,9 @@
             <Label Content="Irányítószám"/>
             <TextBox Name="tbxIrsz"/>
 
+            <Label Content="Cím"/>
+            <TextBox Name="tbxCim"/>
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Name="btnUj" Content="Új" Click="btnUj_Click"/>
                 <Button Name="btnModosit" Content="Módosít" Click="btnModosit_Click"/>
